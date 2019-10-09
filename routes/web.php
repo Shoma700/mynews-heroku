@@ -22,11 +22,11 @@ Route::group(['prefix' => 'admin'], function() {
 //課題//
 //PHP/Laravel 10 ControllerとViewが連携できるようにしよう↓
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('profile/edit', 'Admin\ProfileController@edit');
+    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('profile/create', 'Admin\ProfileController@add');
+    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
 });
 //以上です。
 
