@@ -15,9 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');//
+//Route::group(['prefix' => 'admin'], function() {
+//    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');//
+//});
+
+//↓13章
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+   Route::get('news/create', 'Admin\NewsController@add');
+   Route::post('news/create', 'Admin\NewsController@create'); # 13章追記
 });
+
+
 
 //課題//
 //PHP/Laravel 10 ControllerとViewが連携できるようにしよう↓
