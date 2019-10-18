@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a herf="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+                <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
                 <form action="{{ action('Admin\NewsController@index') }}" method="get">
@@ -40,8 +40,8 @@
                             @foreach($posts as $news)
                                 <tr>
                                     <th>{{ $news->id }}</th>
-                                    <td>{{ \Str::limit($news->title, 100 }}</td>
-                                    <td>{{ \Str::limit($news->title, 250 }}</td>
+                                    <td>{{ \Str::limit($news->title, 100) }}</td>
+                                    <td>{{ \Str::limit($news->title, 250) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
