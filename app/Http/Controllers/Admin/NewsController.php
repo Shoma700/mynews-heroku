@@ -17,6 +17,7 @@ class NewsController extends Controller
     
     public function create(Request $request)
     {
+        //dd($request);
         //13章_Varidationを行う
         $this->validate($request, News::$rules);
         $news = new News;
