@@ -26,7 +26,7 @@ class NewsController extends Controller
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/image');
             $news->image_path = basename($path);
-        }else{
+        } else {
             $news->image_path = null;
         }
         
@@ -47,10 +47,10 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
-        if($cond_title != ''){
+        if ($cond_title != ''){
             //検索されたら検索結果を取得する
             $posts = News::where('title', $cond_title)->get();
-        }else{
+        } else {
             //それ以外はすべてニュースを取得する
             $posts = News::all();
         }
@@ -60,7 +60,7 @@ class NewsController extends Controller
     {
         //News　Model1からデータを取得する
         $news = News::find($request->id);
-        if(empty($news)){
+        if (empty($news)){
             abort(404);
         }
         return view('admin.news.edit', ['news_form' => $news]);
@@ -75,6 +75,15 @@ class NewsController extends Controller
         $news = News::find($request->id);
         //送信されてきたフォームデータを格納する
         $news_form = $request->all();
+        
+        if (isset($news_form['image'])){
+            $path = $request->file('image')->store('public/image');
+            $news->image_path = basename($path);
+            unset($news_form['image']);
+        } elseif (isset($request->remove)){
+            $news->$image_path = null;
+            unset($news_form['remove']);
+        }
         unset($news_form['_token']);
         
         //該当するデータ上書きして保存する
