@@ -42,12 +42,9 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            
                         </ul>
-                        
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                        {{-- 以下を追記 --}}
                         <!-- Authentication Links -->
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                         @guest
@@ -72,16 +69,11 @@
                                 </div>
                             </li>
                             @endguest
-                            {{-- 以上までを追記 --}}
-        
                         </ul>
                     </div>
                 </div>
             </nav>
-            {{-- ここまでナビゲーションバー --}}
-            
             <main class="py-4">
-                {{-- コンテンツをここに入れるため、＠yieldで開けて置きます。 --}}
                 @yield('content')
             </main>
         </div>

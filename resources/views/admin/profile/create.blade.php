@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.profile')
 @section('title', 'プロフィールの新規作成')
 
 @section('content')
@@ -6,8 +6,10 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>プロフィール新規作成</h2>
+                <div class="col-md-4 form-group row">
+                <a href="{{ action('Admin\ProfileController@index') }}" role="button" class="btn btn-primary">登録一覧</a>
+                </div>
                 <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
-
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
