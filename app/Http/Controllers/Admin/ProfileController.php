@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Profile;
+use APP\Profile_history;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -64,10 +66,25 @@ class ProfileController extends Controller
         $profile = Profile::find($request->id);
         // 送信されてきたフォームデータを格納する
         $profile_form = $request->all();
-        // dd($profiles_form);
+        // dd($profile_form);
         unset($profile_form['_token']);
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
+        
+        //17章追記
+        $profile_history = new Profile_history;
+        $profile_history->profile_id = $profile->id;
+        $profile_history->edited_at = Carbon::now();
+        
+        //前回から変更があったら「前回より変更有」なければ「前回より変更無」としたい・・・
+        //
+        $profile_history->edited_name = $profile->name;
+        $profile_history->edited_gender = $profile->gender;
+        $profile_history->edited_hobby = $profile->hobby;
+        $profile_history->edited_introduction = $profile->introduction;
+        
+        $profile_history->save();
+        
         return redirect('admin/profile/');
     }
     

@@ -45,6 +45,38 @@
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
+                
+                {{ 17章追記 }}
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <table>
+                            <thead class="list-group">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>更新時間</th>
+                                    <th>更新前名</th>
+                                    <th>更新前性別</th>
+                                    <th>更新前趣味</th>
+                                    <th>更新前自己紹介</th>
+                                </tr>
+                                @if ($profiles_form->profile_histories != NULL)
+                                    @foreach ($profiles_form->profiles_histories as $profile_history)
+
+                                        <tr class="list-group">
+                                            <td class="list-group-item">{{ $profile_history->id }}</td>
+                                            <td class="list-group-item">{{ $profile_history->edited_at }}</td>
+                                            <td class="list-group-item">{{ $profile_history->edited_name }}</td>
+                                            <td class="list-group-item">{{ $profile_history->edited_gender }}</td>
+                                            <td class="list-group-item">{{ $profile_history->edited_hobby }}</td>
+                                            <td class="list-group-item">{{ $profile_introduction->edited_introduction }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
