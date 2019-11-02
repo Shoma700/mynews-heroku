@@ -13,4 +13,14 @@ class News extends Model
         'title' => 'required',
         'body' => 'required',
         );
+
+    
+    //hasManyは1対多の関連付けを行う
+    //newsテーブル(モデル)1に対して、historiesテーブル(モデル)多の関連付け
+    public function histories()
+    {
+      return $this->hasMany('App\History');
+
+    }
+
 }
