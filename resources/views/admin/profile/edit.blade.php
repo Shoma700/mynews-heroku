@@ -46,12 +46,12 @@
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
                 
-                {{ 17章追記 }}
+                {{-- 17章追記 --}}
                 <div class="row mt-5">
-                    <div class="col-md-4 mx-auto">
+                    <div class="col-md-30 mx-auto">
                         <h2>編集履歴</h2>
                         <table>
-                            <thead class="list-group">
+                            <thead>  {{-- class="list-group" --}}
                                 <tr>
                                     <th>ID</th>
                                     <th>更新時間</th>
@@ -63,13 +63,13 @@
                                 @if ($profiles_form->profile_histories != NULL)
                                     @foreach ($profiles_form->profiles_histories as $profile_history)
 
-                                        <tr class="list-group">
-                                            <td class="list-group-item">{{ $profile_history->id }}</td>
-                                            <td class="list-group-item">{{ $profile_history->edited_at }}</td>
-                                            <td class="list-group-item">{{ $profile_history->edited_name }}</td>
-                                            <td class="list-group-item">{{ $profile_history->edited_gender }}</td>
-                                            <td class="list-group-item">{{ $profile_history->edited_hobby }}</td>
-                                            <td class="list-group-item">{{ $profile_introduction->edited_introduction }}</td>
+                                        <tr> {{-- class="list-group" --}}
+                                            <td>{{ $profile_history->id }}</td>
+                                            <td>{{ $profile_history->edited_at }}</td>
+                                            <td>{{ $profile_history->edited_name }}</td>
+                                            <td>{{ $profile_history->edited_gender }}</td>
+                                            <td>{{ $profile_history->edited_hobby }}</td>
+                                            <td>{{ $profile_introduction->edited_introduction }}</td>
                                         </tr>
                                     @endforeach
                                 @endif

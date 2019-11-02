@@ -77,7 +77,7 @@ class ProfileController extends Controller
         $profile_history->edited_at = Carbon::now();
         
         //前回から変更があったら「前回より変更有」なければ「前回より変更無」としたい・・・
-        //
+        //もしくは頭5文字とか
         $profile_history->edited_name = $profile->name;
         $profile_history->edited_gender = $profile->gender;
         $profile_history->edited_hobby = $profile->hobby;
