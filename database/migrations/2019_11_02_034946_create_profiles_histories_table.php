@@ -18,9 +18,9 @@ class CreateProfilesHistoriesTable extends Migration
             $table->integer('profile_id');
             $table->string('edited_at');
             $table->string('edited_name');
-            $table->string('edhited_gender');
-            $table->string('edhited_hobby');
-            $table->string('edhited_introduction');
+            $table->string('edited_gender');
+            $table->string('edited_hobby');
+            $table->string('edited_introduction');
             $table->timestamps();
         });
     }
