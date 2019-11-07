@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +11,18 @@
 */
 
 Route::get('/', function () {
+
+    echo DNS1D::getBarcodeHTML("1300013501754","EAN13");
+    echo "_";
+    echo DNS2D::getBarcodeHTML("123456789012","QRCODE");
     return view('welcome');
+    
 });
+
+// Route::get('/a', function () {
+//     echo DNS1D::getBarcodeHTML("9999999999999","EAN13");
+// });
+
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
@@ -36,3 +45,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/edit', 'Admin\ProfileController@update');
     Route::get('profile/delete', 'Admin\ProfileController@delete');
 });
+
+//news_front
+Route::get('/', 'NewsController@index');
