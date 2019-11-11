@@ -55,7 +55,13 @@ class ProfileController extends Controller
         if (empty($profile)) {
         abort(404);    
         }
-        return view('admin.profile.edit', ['profile_form' => $profile]);
+        
+        //ページネーション
+        $pg = Profile_history::paginate(4);
+        //ページネーション'pg' => $pgの部分を追加
+        return view('admin.profile.edit', ['profile_form' => $profile,'pg' => $pg]);
+        
+        
     }
     
     public function update(Request $request)

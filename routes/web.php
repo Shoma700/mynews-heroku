@@ -10,8 +10,8 @@
 |
 */
 
-Route::get('/', function () {
-
+Route::get('/aaa', function () {
+// テスト
     echo DNS1D::getBarcodeHTML("1300013501754","EAN13");
     echo "_";
     echo DNS2D::getBarcodeHTML("123456789012","QRCODE");

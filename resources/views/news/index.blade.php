@@ -1,6 +1,7 @@
 @extends('layouts.front')
 
 @section('content')
+<p>{!! DNS1D::getBarcodeHTML("1300013501754","EAN13") !!}</p>
     <div class="container">
         <hr color="#c0c0c0">
         @if (!is_null($headline))
